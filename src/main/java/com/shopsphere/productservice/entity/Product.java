@@ -35,5 +35,11 @@ public class Product {
   private String category;
 
   @Column(nullable = false)
+  private Integer stock;
+
+  @Column(nullable = false)
+  private String image;
+
+  @Column(nullable = false)
   private Long userId;
 }
