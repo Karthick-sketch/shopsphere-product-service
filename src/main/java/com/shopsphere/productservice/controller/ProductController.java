@@ -1,5 +1,6 @@
 package com.shopsphere.productservice.controller;
 
+import com.shopsphere.productservice.dto.*;
 import com.shopsphere.productservice.entity.Product;
 import com.shopsphere.productservice.service.ProductService;
 import java.util.List;
@@ -42,6 +43,13 @@ public class ProductController {
     return ResponseEntity.status(HttpStatus.CREATED).body(
       productService.create(product)
     );
+  }
+
+  @PostMapping("/summary/bash")
+  public ResponseEntity<List<ProductSummary>> getSummary(
+    @RequestBody ProductIdsRequest ids
+  ) {
+    return ResponseEntity.ok(productService.findSummaryByIds(ids));
   }
 
   @PutMapping("/{id}")

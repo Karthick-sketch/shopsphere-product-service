@@ -1,5 +1,6 @@
 package com.shopsphere.productservice.service;
 
+import com.shopsphere.productservice.dto.*;
 import com.shopsphere.productservice.entity.Product;
 import com.shopsphere.productservice.repository.ProductRepository;
 import java.util.List;
@@ -30,6 +31,14 @@ public class ProductService {
 
   public List<Product> findByUserId(Long userId) {
     return productRepository.findByUserId(userId);
+  }
+
+  public List<ProductSummary> findSummaryByIds(ProductIdsRequest productIds) {
+    return productRepository
+      .findAllById(productIds.getIds())
+      .stream()
+      .map(p -> new ProductSummary(p.getId(), p.getName(), p.getImage()))
+      .toList();
   }
 
   public Product create(Product product) {
