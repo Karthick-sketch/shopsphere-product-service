@@ -37,14 +37,6 @@ public class ProductService {
     return productRepository.findAllById(productIds.getIds());
   }
 
-  public List<ProductSummary> findSummaryByIds(ProductIdsRequest productIds) {
-    return findByIds(productIds).stream().map(this::toSummary).toList();
-  }
-
-  public List<ProductInfo> findInfosByIds(ProductIdsRequest productIds) {
-    return findByIds(productIds).stream().map(this::toInfo).toList();
-  }
-
   public Product create(Product product) {
     return productRepository.save(product);
   }
@@ -64,8 +56,22 @@ public class ProductService {
     productRepository.deleteById(id);
   }
 
+  // ProductSummary
+  public List<ProductSummary> findSummaryByIds(ProductIdsRequest productIds) {
+    return findByIds(productIds).stream().map(this::toSummary).toList();
+  }
+
   private ProductSummary toSummary(Product p) {
     return new ProductSummary(p.getId(), p.getName(), p.getImage());
+  }
+
+  // ProductInfo
+  public ProductInfo findInfoById(Long id) {
+    return toInfo(findById(id));
+  }
+
+  public List<ProductInfo> findInfosByIds(ProductIdsRequest productIds) {
+    return findByIds(productIds).stream().map(this::toInfo).toList();
   }
 
   private ProductInfo toInfo(Product p) {

@@ -45,20 +45,6 @@ public class ProductController {
     );
   }
 
-  @PostMapping("/summary/bash")
-  public ResponseEntity<List<ProductSummary>> getSummary(
-    @RequestBody ProductIdsRequest ids
-  ) {
-    return ResponseEntity.ok(productService.findSummaryByIds(ids));
-  }
-
-  @PostMapping("/info/bash")
-  public ResponseEntity<List<ProductInfo>> getInfos(
-    @RequestBody ProductIdsRequest ids
-  ) {
-    return ResponseEntity.ok(productService.findInfosByIds(ids));
-  }
-
   @PutMapping("/{id}")
   public ResponseEntity<Product> update(
     @PathVariable Long id,
@@ -71,5 +57,26 @@ public class ProductController {
   public ResponseEntity<Void> delete(@PathVariable Long id) {
     productService.delete(id);
     return ResponseEntity.noContent().build();
+  }
+
+  // ProductSummary
+  @PostMapping("/summary/bash")
+  public ResponseEntity<List<ProductSummary>> getSummary(
+    @RequestBody ProductIdsRequest ids
+  ) {
+    return ResponseEntity.ok(productService.findSummaryByIds(ids));
+  }
+
+  // ProductInfo
+  @GetMapping("/info/{id}")
+  public ResponseEntity<ProductInfo> getInfo(@PathVariable Long id) {
+    return ResponseEntity.ok(productService.findInfoById(id));
+  }
+
+  @PostMapping("/info/bash")
+  public ResponseEntity<List<ProductInfo>> getInfos(
+    @RequestBody ProductIdsRequest ids
+  ) {
+    return ResponseEntity.ok(productService.findInfosByIds(ids));
   }
 }
