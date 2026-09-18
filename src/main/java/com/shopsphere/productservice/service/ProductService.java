@@ -33,12 +33,16 @@ public class ProductService {
     return productRepository.findByUserId(userId);
   }
 
+  public List<Product> findByIds(ProductIdsRequest productIds) {
+    return productRepository.findAllById(productIds.getIds());
+  }
+
   public List<ProductSummary> findSummaryByIds(ProductIdsRequest productIds) {
-    return productRepository
-      .findAllById(productIds.getIds())
-      .stream()
-      .map(p -> new ProductSummary(p.getId(), p.getName(), p.getImage()))
-      .toList();
+    return findByIds(productIds).stream().map(this::toSummary).toList();
+  }
+
+  public List<ProductInfo> findInfosByIds(ProductIdsRequest productIds) {
+    return findByIds(productIds).stream().map(this::toInfo).toList();
   }
 
   public Product create(Product product) {
@@ -58,5 +62,19 @@ public class ProductService {
   public void delete(Long id) {
     findById(id);
     productRepository.deleteById(id);
+  }
+
+  private ProductSummary toSummary(Product p) {
+    return new ProductSummary(p.getId(), p.getName(), p.getImage());
+  }
+
+  private ProductInfo toInfo(Product p) {
+    return new ProductInfo(
+      p.getId(),
+      p.getName(),
+      p.getPrice(),
+      p.getStock(),
+      p.getImage()
+    );
   }
 }

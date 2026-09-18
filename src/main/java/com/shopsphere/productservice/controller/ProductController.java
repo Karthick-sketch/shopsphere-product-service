@@ -52,6 +52,13 @@ public class ProductController {
     return ResponseEntity.ok(productService.findSummaryByIds(ids));
   }
 
+  @PostMapping("/info/bash")
+  public ResponseEntity<List<ProductInfo>> getInfos(
+    @RequestBody ProductIdsRequest ids
+  ) {
+    return ResponseEntity.ok(productService.findInfosByIds(ids));
+  }
+
   @PutMapping("/{id}")
   public ResponseEntity<Product> update(
     @PathVariable Long id,
