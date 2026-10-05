@@ -62,7 +62,7 @@ public class ProductService {
   }
 
   private ProductSummary toSummary(Product p) {
-    return new ProductSummary(p.getId(), p.getName(), p.getImage());
+    return new ProductSummary(p.getId(), p.getName(), p.getImageUrl());
   }
 
   // ProductInfo
@@ -79,8 +79,7 @@ public class ProductService {
       p.getId(),
       p.getName(),
       p.getPrice(),
-      p.getStock(),
-      p.getImage()
+      p.getImageUrl()
     );
   }
 }
