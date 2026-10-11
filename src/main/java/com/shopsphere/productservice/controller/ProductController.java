@@ -17,13 +17,13 @@ public class ProductController {
   private final ProductService productService;
 
   @GetMapping
-  public ResponseEntity<List<Product>> getAll() {
+  public ResponseEntity<List<ProductResponse>> getAll() {
     return ResponseEntity.ok(productService.findAll());
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<Product> getById(@PathVariable Long id) {
-    return ResponseEntity.ok(productService.findById(id));
+  public ResponseEntity<ProductResponse> getById(@PathVariable Long id) {
+    return ResponseEntity.ok(productService.findProductResponseById(id));
   }
 
   @GetMapping("/category/{category}")
