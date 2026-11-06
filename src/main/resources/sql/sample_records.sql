@@ -5,8 +5,7 @@ INSERT INTO
         price,
         sku,
         category,
-        stock,
-        image,
+        image_url,
         user_id
     )
 VALUES (
@@ -15,7 +14,6 @@ VALUES (
         149.99,
         'ELEC-AUDIO-001',
         'Electronics',
-        120,
         'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80',
         1
     ),
@@ -25,7 +23,6 @@ VALUES (
         89.99,
         'ELEC-PERIPH-002',
         'Electronics',
-        85,
         'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&q=80',
         1
     ),
@@ -35,7 +32,6 @@ VALUES (
         299.99,
         'FURN-CHAIR-003',
         'Furniture',
-        40,
         'https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?w=600&q=80',
         2
     ),
@@ -45,7 +41,6 @@ VALUES (
         34.99,
         'KITCH-BOTTLE-004',
         'Kitchen',
-        200,
         'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&q=80',
         2
     ),
@@ -55,7 +50,6 @@ VALUES (
         119.99,
         'SPORT-SHOE-005',
         'Sports',
-        60,
         'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80',
         3
     ),
@@ -65,7 +59,6 @@ VALUES (
         45.00,
         'SPORT-YOGA-006',
         'Sports',
-        150,
         'https://images.unsplash.com/photo-1601925228008-67cf9e13db5d?w=600&q=80',
         3
     ),
@@ -75,7 +68,6 @@ VALUES (
         59.99,
         'HOME-LAMP-007',
         'Home',
-        95,
         'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&q=80',
         4
     ),
@@ -85,7 +77,6 @@ VALUES (
         79.99,
         'ELEC-AUDIO-008',
         'Electronics',
-        75,
         'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&q=80',
         4
     ),
@@ -95,7 +86,6 @@ VALUES (
         39.99,
         'HOME-DECOR-009',
         'Home',
-        110,
         'https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?w=600&q=80',
         5
     ),
@@ -105,7 +95,6 @@ VALUES (
         64.99,
         'KITCH-COFFEE-010',
         'Kitchen',
-        55,
         'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80',
         5
     );

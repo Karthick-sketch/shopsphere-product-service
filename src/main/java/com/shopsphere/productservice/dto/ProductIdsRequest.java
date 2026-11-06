@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ProductIdsRequest {
 
-  private List<Long> productIds;
+  private List<Long> ids;
 }

@@ -58,7 +58,7 @@ public class ProductService {
   }
 
   public List<Product> findByIds(ProductIdsRequest request) {
-    return productRepository.findAllById(request.getProductIds());
+    return productRepository.findAllById(request.getIds());
   }
 
   public Product create(Product product) {
